@@ -1,0 +1,64 @@
+<div class="contenedor">
+    <mat-toolbar>
+        <span>Actualizar PC</span>
+    </mat-toolbar>
+    
+    
+    <mat-card style="margin-top: 20 px;" > 
+        <form [formGroup]="RegisForm" (ngSubmit)="actualizarPC()">
+
+        <mat-grid-list cols="1" rowHeight="70px">
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <img src="/assets/img/ordenador.png" style="width: 30%;" >
+
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+            <mat-form-field appearance="fill" class="select">
+                <mat-label>Departamanto</mat-label>
+                <mat-select formControlName="Departamento" [(value)]="DeparmentSelected">
+                  <mat-option *ngFor="let Deparment of Deparments" [value]= "Deparment._id" > {{Deparment.name}} </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Folio</mat-label>
+                    <input matInput autocomplete="off" formControlName="Folio">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <mat-form-field appearance="fill" class="select">
+                    <mat-label>Status</mat-label>
+                    <mat-select formControlName="Status" [(value)]="StatusSelected">
+                      <mat-option *ngFor="let status of StatusAll" [value]= "status.value" > {{status.value}} </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1" class="ancho">
+                <button mat-button mat-dialog-close>Cerrar</button>
+                <button type="submit"  mat-raised-button color="primary" mat-dialog-close>Actualizar</button>
+                    
+        
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+        
+        </form>
+    </mat-card>
+ 
+</div>

@@ -1,0 +1,15 @@
+.imagen{
+
+    display: flex;
+    margin-top: 10%;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+
+}
+
+.divimagen{
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+}

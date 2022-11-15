@@ -1,0 +1,41 @@
+<h1>Editando <a class="subtitulo">{{data.name}}</a></h1>
+
+
+    <form [formGroup]="RegisForm" (ngSubmit)="actualizar()">
+    <mat-grid-list cols="1" rowHeight="70px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+            <mat-form-field appearance="fill" class="ancho" >
+                <mat-label>Usuario</mat-label >
+                <input matInput autocomplete="off" formControlName="user">
+              </mat-form-field>
+
+        </mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+            <mat-form-field appearance="fill" class="ancho" >
+                <mat-label>Nombre Completo</mat-label>
+                <input matInput autocomplete="off" formControlName="name">
+              </mat-form-field>
+
+        </mat-grid-tile>
+
+
+        
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1" class="ancho">
+            <button mat-button mat-dialog-close>Cerrar</button>
+            <button type="submit"  mat-raised-button color="primary" mat-dialog-close>Actualizar</button>
+            
+
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+    
+    </form>
+
+
+

@@ -1,0 +1,61 @@
+<div class="contenedor">
+    <mat-toolbar>
+        <span>Resgistrar Nueva Computadora</span>
+    </mat-toolbar>
+    
+    
+    <mat-card style="margin-top: 20 px;" > 
+        <form [formGroup]="RegisForm" (ngSubmit)="registrarPC()">
+
+        <mat-grid-list cols="3" rowHeight="70px">
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+            <mat-form-field appearance="fill" class="select">
+                <mat-label>Departamanto</mat-label>
+                <mat-select formControlName="Departamento" [(value)]="DeparmentSelected">
+                  <mat-option *ngFor="let Deparment of Deparments" [value]= "Deparment._id" > {{Deparment.name}} </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="2" [rowspan]="4">
+
+                <img src="/assets/img/ordenador.png" style="width: 30%;" >
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Folio</mat-label>
+                    <input matInput autocomplete="off" formControlName="Folio">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <mat-form-field appearance="fill" class="select">
+                    <mat-label>Status</mat-label>
+                    <mat-select formControlName="Status" [(value)]="StatusSelected">
+                      <mat-option *ngFor="let status of StatusAll" [value]= "status.value" > {{status.value}} </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1" class="ancho">
+                <button mat-raised-button style="margin-right: 20px;" routerLink="/dashboard/inventario/computers">Volver</button>
+                <button type="submit" mat-raised-button color="primary" >Registrar</button>
+
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+        
+        </form>
+    </mat-card>
+ 
+</div>

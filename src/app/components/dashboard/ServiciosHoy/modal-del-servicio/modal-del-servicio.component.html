@@ -1,0 +1,81 @@
+<div class="container">
+  <div>
+    <h1 mat-dialog-title>{{data.report.title}} </h1>
+
+
+
+    <div mat-dialog-content>
+
+    <div class="row">
+      <div class="sect sub">
+        <h4>Categoria:</h4>
+        <p>{{data.report.category}}</p>
+       </div>
+
+
+
+        <div class="sect sub">
+          <h4>Fecha y hora:</h4>
+        <p>{{data.createdAt.toString().slice(0, 10)}}, {{data.createdAt.toString().slice(11, 16)}}</p>
+        </div>
+    </div>
+
+
+                  <div class="sect">
+                    <h2>Descripción:</h2>
+                    <h3>{{data.report.description}}</h3>
+                  </div>
+
+
+
+                  <div class="sect">
+                    <h2>Departamento:</h2>
+                  <h3>{{data.report.department.name}}</h3>
+                    <h2>Ubicación:</h2>
+                  <h3>{{data.report.department.ubication}}</h3>
+                  </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+  <div class="assign">
+    <mat-grid-list cols="2" rowHeight="70px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+        <mat-form-field appearance="fill" class="select">
+            <mat-label>Chico servicio a asignar</mat-label>
+            <mat-select [(value)]="UserSite_selected">
+              <mat-option *ngFor="let user of UsersSite" [value]= "user._id" > {{user.name}} </mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+    </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+          <mat-form-field appearance="fill" class="select">
+              <mat-label>Nivel de Severidad</mat-label>
+              <mat-select [(value)]="Severities_selected">
+                <mat-option *ngFor="let severity of Severities" [value]= "severity.value" > {{severity.name}} </mat-option>
+
+              </mat-select>
+          </mat-form-field>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <div mat-dialog-actions class="actions">
+      <button mat-button mat-dialog-close>Cerrar</button>
+      <button mat-button color="primary" mat-dialog-close (click)="AsignarServicio(data, Severities_selected,UserSite_selected)">Asignar</button>
+    </div>
+  </div>
+
+</div>

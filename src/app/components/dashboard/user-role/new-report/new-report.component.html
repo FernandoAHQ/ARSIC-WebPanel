@@ -1,0 +1,32 @@
+<div class="container">
+
+
+  <div class="form" role="group" [formGroup]="parts">
+
+
+
+
+
+
+    <mat-form-field class="title" formControlName="title" appearance="fill">
+      <mat-label>Título del Reporte</mat-label>
+      <input placeholder="Título del Reporte">
+    </mat-form-field>
+
+
+
+    <mat-form-field class="area" formControlName="area" appearance="fill">
+      <mat-label>Título del Reporte</mat-label>
+      <textarea placeholder="Título del Reporte" [cols]="35" [rows]="15"></textarea>
+    </mat-form-field>
+
+    <mat-form-field formControlName="cat">
+      <mat-label>Categoría</mat-label>
+      <mat-select>
+        <mat-option value="1">Opcion 1</mat-option>
+        <mat-option value="2">Opcion 2</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+</div>

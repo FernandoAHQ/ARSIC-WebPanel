@@ -1,0 +1,89 @@
+<div class="contenedor">
+    <mat-toolbar>
+        <span>Registrar Nuevo AP</span>
+    </mat-toolbar>
+    
+    
+    <mat-card style="margin-top: 20 px;" > 
+        <form [formGroup]="RegisForm" (ngSubmit)="registrarAP()">
+
+        <mat-grid-list cols="3" rowHeight="70px">
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field appearance="fill" class="ancho" >
+                        <mat-label>Etiqueta</mat-label>
+                        <input matInput autocomplete="off" formControlName="etiqueta">
+                      </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="2" [rowspan]="8">
+                <img src="/assets/img/wifi.png" style="width: 30%;" >
+            </mat-grid-tile>
+            
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Mac Address</mat-label>
+                    <input matInput autocomplete="off" formControlName="mac">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field appearance="fill" class="ancho" >
+                        <mat-label>Serie</mat-label>
+                        <input matInput autocomplete="off" formControlName="serie">
+                      </mat-form-field>
+             </mat-grid-tile>
+
+
+             <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field appearance="fill" class="ancho" >
+                        <mat-label>Usuario</mat-label>
+                        <input matInput autocomplete="off" formControlName="usuario">
+                      </mat-form-field>
+             </mat-grid-tile>
+
+
+             <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field appearance="fill" class="ancho" >
+                        <mat-label>Password</mat-label>
+                        <input matInput autocomplete="off" formControlName="password">
+                      </mat-form-field>
+             </mat-grid-tile>
+
+             <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field appearance="fill" class="ancho" >
+                        <mat-label>Marca</mat-label>
+                        <input matInput autocomplete="off" formControlName="marca">
+                      </mat-form-field>
+             </mat-grid-tile>
+
+             <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field appearance="fill" class="ancho" >
+                        <mat-label>Modelo</mat-label>
+                        <input matInput autocomplete="off" formControlName="modelo">
+                      </mat-form-field>
+             </mat-grid-tile>
+
+             <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Ubicacion</mat-label>
+                    <input matInput autocomplete="off" formControlName="ubicacion">
+                  </mat-form-field>
+         </mat-grid-tile>
+
+         <mat-grid-tile [colspan]="3" [rowspan]="1" class="ancho">
+            <button mat-raised-button style="margin-right: 20px;" routerLink="/dashboard/inventario/aps">Volver</button>
+            <button type="submit" mat-raised-button color="primary" >Registrar</button>
+        </mat-grid-tile>
+        
+
+        </mat-grid-list>
+
+        
+        </form>
+    </mat-card>
+ 
+</div>

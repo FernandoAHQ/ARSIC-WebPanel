@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div>
+    <h1><b>Tarea: </b>{{data.task.name}}</h1>
+  <p>{{data.date}}</p>
+  <h3><b>Responsable: </b>{{data.user.name}}</h3>
+  <div *ngIf="data.observation!=''">
+    <p><b>Observación:</b></p>
+    <p>{{data.observation}}</p>
+  </div>
+  <div *ngIf="data.solution!=''">
+    <p><b>Solución:</b></p>
+    <p>{{data.solution}}</p>
+  </div>
+  </div>
+
+  <button mat-button mat-dialog-close color="warn">Cerrar</button>
+
+</div>

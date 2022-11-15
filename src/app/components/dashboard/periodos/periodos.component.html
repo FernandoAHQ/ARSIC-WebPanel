@@ -1,0 +1,45 @@
+<div class="contenedor">
+    <mat-toolbar>
+
+        <span>Periodos</span>
+
+        <span class="example-spacer"></span>
+
+        <button mat-raised-button color="warn" routerLink="/dashboard/crearPeriodo">Crear Periodo</button>
+
+    </mat-toolbar>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+
+    
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" >
+
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Usuario </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+      
+       
+        <ng-container matColumnDef="Fecha Inicio">
+          <th mat-header-cell *matHeaderCellDef> Fecha De Inicio </th>
+          <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Fecha Final">
+          <th mat-header-cell *matHeaderCellDef> Fecha de Termino </th>
+          <td mat-cell *matCellDef="let element"> {{element.finalDate}} </td>
+        </ng-container>
+      
+
+             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+      </table>  
+
+
+
+</div>

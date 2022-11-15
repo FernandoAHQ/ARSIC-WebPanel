@@ -1,0 +1,74 @@
+<div class="contenedor">
+
+    <mat-toolbar>
+
+        <span>Usuarios</span>
+
+        <span class="example-spacer"></span>
+
+          <mat-form-field appearance="fill" class="select">
+            <mat-label>SELECCIONE UN ROLE</mat-label>
+            <mat-select [(value)]="role_selected" (valueChange)="cambioRole($event)">
+              <mat-option *ngFor="let role of roles" [value]= "role.value" > {{role.name}} </mat-option>
+              
+            </mat-select>
+          </mat-form-field>
+        
+        <button mat-raised-button color="warn" routerLink="/dashboard/crearUsuario">Crear Usuario</button>
+     
+      </mat-toolbar>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+
+    
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" >
+
+        <ng-container matColumnDef="Foto">
+          <th mat-header-cell *matHeaderCellDef> Foto </th>
+          <td mat-cell *matCellDef="let element"> <img [src]= "element.image"  width="100" height="100">  </td>
+        </ng-container>
+      
+       
+        <ng-container matColumnDef="Usuario">
+          <th mat-header-cell *matHeaderCellDef> Usuario </th>
+          <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Role">
+          <th mat-header-cell *matHeaderCellDef> Role </th>
+          <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" style="text-align: right;"> 
+            
+                <a class="pointer" style="color:darkslategray" matTooltip="Ver Usuario"> <mat-icon>search</mat-icon> </a>
+                <a class="pointer" style="color:green;" matTooltip="Editar Usuario" (click)="editar(element)">  <mat-icon>edit</mat-icon> </a>
+            </td>
+          </ng-container>
+
+             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+      </table>  
+
+      <div *ngIf="!Cargando">
+
+        <app-paginador [totalResults]="TotalResultados" [limitProducts]="20" [value]="role_selected"></app-paginador>
+
+      </div>
+     
+      
+</div>

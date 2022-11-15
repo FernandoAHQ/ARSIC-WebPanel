@@ -1,0 +1,25 @@
+<div class="bodylogin">
+
+    <div class="login">
+      <mat-spinner *ngIf="cargandospinner" class="spinner" diameter="50"></mat-spinner>
+        <form *ngIf="!cargandospinner" [formGroup]="form" (ngSubmit)="ingresar()">
+
+            <img  src="./assets/img/SIOSLOG1.png" style="width: 50%;">
+
+            <mat-form-field class="ancho"  appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input matInput type="Text" formControlName="user">
+            </mat-form-field>
+
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button class="ancho boton" [disabled]="form.invalid" color="primary">INGRESAR</button>
+
+        </form>
+
+    </div>
+
+</div>

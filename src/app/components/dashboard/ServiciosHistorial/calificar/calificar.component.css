@@ -1,0 +1,31 @@
+mat-slider {
+    width: 80%;
+  }
+
+  .sect>h3{
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  .sect{
+    margin-bottom: 15px;
+  }
+
+  .score>p{
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-weight: 500;
+  }
+
+  .red{
+    font-weight: 500;
+    color: brown;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+

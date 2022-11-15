@@ -1,0 +1,109 @@
+<div class="contenedor">
+    <mat-toolbar>
+        <span>Registrar Nueva Vlan</span>
+    </mat-toolbar>
+    
+    
+    <mat-card style="margin-top: 20 px;" > 
+        <form [formGroup]="RegisForm" (ngSubmit)="registrarVLAN()">
+
+        <mat-grid-list cols="3" rowHeight="70px">
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>VLAN</mat-label>
+                    <input matInput autocomplete="off" formControlName="vlan">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+           
+            <mat-grid-tile [colspan]="2" [rowspan]="10">
+                <img src="/assets/img/lan.png" style="width: 30%;" >
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Nombre</mat-label>
+                    <input matInput autocomplete="off" formControlName="name">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>IP</mat-label>
+                    <input matInput autocomplete="off" formControlName="ip">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Mask</mat-label>
+                    <input matInput autocomplete="off" formControlName="mask">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Gateway</mat-label>
+                    <input matInput autocomplete="off" formControlName="gateway">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Broadcast</mat-label>
+                    <input matInput autocomplete="off" formControlName="broadcast">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>StaticStart</mat-label>
+                    <input matInput autocomplete="off" formControlName="staticStart">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>StaticEnd</mat-label>
+                    <input matInput autocomplete="off" formControlName="staticEnd">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>DynamicStart</mat-label>
+                    <input matInput autocomplete="off" formControlName="dynamicStart">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>DynamicEnd</mat-label>
+                    <input matInput autocomplete="off" formControlName="dynamicEnd">
+                  </mat-form-field>
+            </mat-grid-tile>
+
+        
+            <mat-grid-tile [colspan]="1" [rowspan]="1" class="ancho">
+                <button mat-raised-button style="margin-right: 20px;" routerLink="/dashboard/inventario/vlans">Volver</button>
+                <button type="submit" mat-raised-button color="primary" >Registrar</button>
+
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+        
+        </form>
+    </mat-card>
+ 
+</div>

@@ -1,0 +1,23 @@
+.negrita{
+    font-weight: bold;
+  }
+
+  table {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+
+.example-card {
+    max-width: 300px;
+    margin-bottom: 8px;
+  }
+
+
+  .ancho{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+  }

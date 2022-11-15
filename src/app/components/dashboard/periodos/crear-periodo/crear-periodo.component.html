@@ -1,0 +1,57 @@
+<div class="contenedor">
+    <mat-toolbar>
+        <span>Crear Periodo</span>
+    </mat-toolbar>
+    
+    
+    <mat-card style="margin-top: 15 px;" > 
+        <form [formGroup]="RegisForm" (ngSubmit)="registrarPeriodo()">
+        <mat-grid-list cols="3" rowHeight="70px">
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Nombre</mat-label >
+                    <input matInput autocomplete="off" formControlName="name">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="2" [rowspan]="6">
+
+                <img src="/assets/img/usuarioLogin.png" style="width: 30%;" >
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Fecha de Inicio</mat-label>
+                    <input matInput autocomplete="off" formControlName="starDate">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Fecha de Fin</mat-label>
+                    <input matInput autocomplete="off" formControlName="finalDate">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+            
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1" class="ancho">
+                <button mat-raised-button style="margin-right: 20px;" routerLink="/dashboard/usuarios">Volver</button>
+                <button type="submit" mat-raised-button color="primary" >Registrar</button>
+
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+        
+        </form>
+    </mat-card>
+ 
+</div>

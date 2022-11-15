@@ -1,0 +1,12 @@
+
+
+<div class="pagination">
+  <div *ngIf="currentPage == 1" class="space"></div>
+  <a *ngIf="currentPage != 1"
+  (click)="changePage( currentPage - 1 )"><i class="fas fa-chevron-left"></i></a>
+<a *ngFor="let page of  (currentPage <= 2) ? pages.slice( 0, currentPage+4 ) : pages.slice( currentPage-3, currentPage+2 )"
+        (click)="changePage( page )"
+        [ngClass]="{'active': currentPage == page}">{{ page }}</a>
+    <a *ngIf="currentPage != lastPage"
+        (click)="changePage( currentPage + 1 )"><i class="fas fa-chevron-right"></i></a>
+</div>

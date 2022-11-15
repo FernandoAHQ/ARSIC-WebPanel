@@ -1,0 +1,48 @@
+<div class="contenedor">
+
+    <mat-toolbar>
+        <span>Usuarios</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="warn" routerLink="/dashboard/crearDepto">Crear Departamento</button>
+      </mat-toolbar>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z5">
+
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef> Departmento </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+       
+        <ng-container matColumnDef="Usuario">
+          <th mat-header-cell *matHeaderCellDef> Usuario </th>
+          <td mat-cell *matCellDef="let element"> {{element.user.name}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Ubicacion">
+          <th mat-header-cell *matHeaderCellDef> Ubicación </th>
+          <td mat-cell *matCellDef="let element"> {{element.ubication}} </td>
+        </ng-container>
+      
+      
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" style="text-align: right;"> 
+            
+                <a class="pointer" style="color:darkslategray" matTooltip="Ver Usuario"> <mat-icon>search</mat-icon> </a>
+                <a class="pointer" style="color:green;" matTooltip="Editar Usuario">  <mat-icon>edit</mat-icon> </a>
+            </td>
+          </ng-container>
+
+             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+      </table>
+      
+</div>

@@ -1,0 +1,24 @@
+<div class="contenedor">
+
+
+    <mat-toolbar class="contenedorDentro" >
+
+      <span>Inventario</span>
+
+
+      <span class="example-spacer"></span>
+
+      <mat-form-field name="Categorías">
+        <mat-select placeholder="Categorías">
+          <mat-option *ngFor="let cat of categories" [value]="cat" [routerLink]="[cat]">
+            {{cat}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+
+</div>

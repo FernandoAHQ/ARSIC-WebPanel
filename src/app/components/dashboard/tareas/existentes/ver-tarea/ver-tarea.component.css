@@ -1,0 +1,59 @@
+.circle-image{
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+}
+
+.assigned{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: medium;
+}
+
+.section{
+  margin-bottom: 30px;
+}
+
+.addUser{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  align-self: flex-end;
+}
+
+.a-image{
+  display: inline-block;
+  width: 15%;
+}
+
+.a-name{
+  display: inline-block;
+  width: 50%;
+}
+
+.a-time{
+  display: inline-block;
+  width: 35%;
+}
+
+
+.close{
+  align-self: flex-end;
+}
+
+.addUser{
+  justify-self: flex-end;
+}
+
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title{
+  font-weight: bold;
+}

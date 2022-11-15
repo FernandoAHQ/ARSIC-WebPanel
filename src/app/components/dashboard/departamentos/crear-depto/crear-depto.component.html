@@ -1,0 +1,65 @@
+<div class="contenedor">
+    <mat-toolbar>
+        <span>Crear Departamento</span>
+    </mat-toolbar>
+    
+    
+    <mat-card style="margin-top: 15 px;" > 
+        <form [formGroup]="DeptoForm" (ngSubmit)="CrearDepto()">
+        
+            <mat-grid-list cols="3" rowHeight="70px">
+
+            
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Nombre del departartamento</mat-label>
+                    <input matInput autocomplete="off" formControlName="name">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="2" [rowspan]="6">
+
+                <img src="/assets/img/division.png" style="width: 30%;" >
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <mat-form-field appearance="fill" class="ancho" >
+                    <mat-label>Encargador de departartamento</mat-label>
+                    <mat-select formControlName="user" required>
+                        <mat-option *ngFor="let user of DataUsers" [value]="user._id">{{user.name}}</mat-option>
+                        
+                      </mat-select>
+                  </mat-form-field>
+
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <mat-form-field appearance="fill" class="ancho">
+                    <mat-label>Ubicación</mat-label>
+                    <input matInput autocomplete="off" formControlName="ubication">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1" class="ancho">
+                <button mat-raised-button style="margin-right: 20px;" routerLink="/dashboard/departamentos">Volver</button>
+                <button type="submit" mat-raised-button color="primary" >Registrar</button>
+
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+        
+        </form>
+    </mat-card>
+ 
+</div>

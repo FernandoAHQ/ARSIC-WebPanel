@@ -1,0 +1,113 @@
+<div class="contenedor">
+
+
+  <mat-toolbar>
+
+      <span>Servicios Hoy</span>
+
+      <span class="example-spacer"></span>
+
+
+
+    </mat-toolbar>
+
+    <div class="reports" *ngIf="dataSource.data.length>0;else no_reports">
+
+  <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" >
+
+      <ng-container matColumnDef="Titulo">
+          <th mat-header-cell *matHeaderCellDef> Titulo </th>
+          <td mat-cell *matCellDef="let element"  class="negrita title" (click)="asignar(element)" >
+            {{element.report.title}}
+          </td>
+        </ng-container>
+
+
+      <ng-container matColumnDef="Departamento">
+        <th mat-header-cell *matHeaderCellDef> Departamento </th>
+        <td mat-cell *matCellDef="let element"> {{element.report.department.name}} </td>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+
+        <td mat-cell *matCellDef="let element">
+          <mat-chip color="primary" selected>
+            {{element.status}}
+          </mat-chip>
+
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Categoria">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+        <td mat-cell *matCellDef="let element"> {{element.report.category}} </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="Asignar">
+        <th mat-header-cell *matHeaderCellDef> Asignar A </th>
+        <td mat-cell *matCellDef="let element">
+
+          <mat-label>Asignar A</mat-label>
+          <mat-select  [(value)]="UserSite_selected">
+            <mat-option *ngFor="let user of UsersSite" [value]= "user._id" > {{user.name}} </mat-option>
+
+          </mat-select>
+
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Nivel">
+          <th mat-header-cell *matHeaderCellDef> Nivel de importancia </th>
+          <td mat-cell *matCellDef="let element">
+
+            <mat-label>Nivel de Severidad</mat-label>
+           <mat-select  [(value)]="Severities_selected">
+            <mat-option *ngFor="let severities of Severities" [value]= "severities.value" > {{severities.name}} </mat-option>
+            </mat-select>
+
+
+          </td>
+        </ng-container> -->
+
+
+      <ng-container matColumnDef="Acciones">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element" style="text-align: right;">
+
+            <button mat-raised-button  color="warn" (click)="asignar(element)">ASIGNAR</button>
+
+          </td>
+        </ng-container>
+
+           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+
+
+    <br>
+</div>
+
+
+<ng-template #no_reports>
+  <div class="no-reports">
+    <div class="circle">
+      <i>&#10003;</i>
+    </div>
+    <h2>¡Sin Reportes!</h2>
+
+  </div>
+
+
+</ng-template>
+
