@@ -98,7 +98,7 @@ export class ServiciosHistorialComponent implements OnInit {
 
         this.dataSource.data.forEach((elem)=>{
 
-
+          if(elem.status == 'Sin Asignar' ) elem.assignedTo = {name: "", }
           elem.evidenceImage= `${url}/api/images/services/${elem.evidenceImage}`
 
         });
@@ -130,6 +130,7 @@ export class ServiciosHistorialComponent implements OnInit {
     this.ServicesByStatusService.Get_StatusAPI().subscribe(
       resp => {
         this.Levels=resp.status
+
       }
     )
 

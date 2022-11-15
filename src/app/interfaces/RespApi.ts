@@ -43,9 +43,9 @@ export interface User {
 }
 
 export interface AssignedTo {
-    _id:      string;
-    name:     string;
-    username: string;
+    _id?:      string;
+    name?:     string;
+    username?: string;
 }
 
 
