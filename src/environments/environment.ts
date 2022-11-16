@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
- // baseURL: 'http://10.1.41.40:4000/api'
-  baseURL: 'http://localhost:4000'
+  baseURL: 'http://10.1.41.30:4000'
+ // baseURL: 'http://localhost:4000'
   //baseURL: 'https://sios-server-new.herokuapp.com/api'
 };
 

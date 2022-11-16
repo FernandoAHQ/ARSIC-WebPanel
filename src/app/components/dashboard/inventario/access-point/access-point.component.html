@@ -2,26 +2,26 @@
 
 
     <mat-toolbar>
-  
-      <span>AP'S</span>
+
+      <span>Access Points</span>
 
       <span class="example-spacer"></span>
 
-      <button mat-raised-button color="warn" routerLink="/dashboard/Register-AP" >Registrar Nuevo AP</button>
-  
-      
-  
+      <button mat-raised-button color="warn" routerLink="/dashboard/new-ap" >NUEVO AP</button>
+
+
+
     </mat-toolbar>
-  
+
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z5"  >
-  
-     
+
+
       <ng-container matColumnDef="Etiqueta">
         <th mat-header-cell *matHeaderCellDef> Etiqueta </th>
         <td mat-cell *matCellDef="let element"> {{element.etiqueta}} </td>
       </ng-container>
-  
-      
+
+
       <ng-container matColumnDef="Mac">
         <th mat-header-cell *matHeaderCellDef> Direccion Mac </th>
         <td mat-cell *matCellDef="let element"> {{element.mac}} </td>
@@ -56,20 +56,20 @@
         <th mat-header-cell *matHeaderCellDef> Ubicacion </th>
         <td mat-cell *matCellDef="let element"> {{element.ubicacion}} </td>
       </ng-container>
-        
+
       <ng-container matColumnDef="Acciones" >
           <th mat-header-cell *matHeaderCellDef> Acciones </th>
-          <td mat-cell *matCellDef="let element" style="text-align: right;"> 
+          <td mat-cell *matCellDef="let element" style="text-align: right;">
           <a class="pointer" style="color:green;" matTooltip="Editar Computadora" (click)="editar(element)">  <mat-icon>edit</mat-icon> </a>
           </td>
         </ng-container>
-  
+
            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
+
     </table>
-  
-  
+
+
     <div *ngIf="!Cargando">
 
       <app-paginador [totalResults]="TotalResultados" [limitProducts]="20"  [value]='value'></app-paginador>

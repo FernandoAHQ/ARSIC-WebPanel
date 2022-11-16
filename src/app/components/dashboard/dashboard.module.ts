@@ -31,6 +31,7 @@ import { TareasComponent } from './tareas/tareas.component';
 import { ToolbarDeptComponent } from './inicio/toolbar-dept/toolbar-dept.component';
 import { ToolbarAdminComponent } from './inicio/toolbar-admin/toolbar-admin.component';
 import { NewReportComponent } from './user-role/new-report/new-report.component';
+import { StatusLabelComponent } from '././servicios/status-label/status-label.component';
 
 
 
@@ -65,6 +66,7 @@ import { NewReportComponent } from './user-role/new-report/new-report.component'
     ToolbarDeptComponent,
     ToolbarAdminComponent,
     NewReportComponent,
+    StatusLabelComponent
   ],
   imports: [
     CommonModule,

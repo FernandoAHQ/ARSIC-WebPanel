@@ -31,10 +31,17 @@ export interface Service {
     evidenceImage?: string;
 }
 
-export interface Report {
-    _id:   string;
-    title: string;
+export interface Report{
+  _id: string,
+  category: string,
+  createdAt: Date,
+  department: Department,
+  description: string,
+  isAssigned: boolean,
+  title: string,
+  updatedAt: Date
 }
+
 
 export interface User {
     _id:      string;

@@ -9,6 +9,8 @@ import { SocketWebService } from '../../../services/socket-web.service';
 import { AssignInterface } from '../../../interfaces/Interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalDelServicioComponent } from './modal-del-servicio/modal-del-servicio.component';
+import { CalificarComponent } from '../ServiciosHistorial/calificar/calificar.component';
+import { ModalDetallesComponent } from '../servicios/modal-detalles/modal-detalles.component';
 
 
 @Component({
@@ -73,13 +75,30 @@ export class ServiciosHoyComponent implements OnInit {
 
   asignar (servicio:Service ){
 
-    this.dialog.open(ModalDelServicioComponent, {width: '30%', height: '80%',data:servicio})
+    this.dialog.open(ModalDelServicioComponent, {width: '40%', height: '70%',data:servicio})
 
 
     console.log(servicio);
 
   }
 
+  calificar(servicio : Service  ){
+
+    this.dialog.open(CalificarComponent, {height: '600px', width: '450px', data:servicio})
+
+
+    console.log(servicio);
+
+  }
+
+  detalles(servicio : Service  ){
+
+    this.dialog.open(ModalDetallesComponent, {height: '600px', width: '450px', data:servicio})
+
+
+    console.log(servicio);
+
+  }
 
 
 

@@ -2,25 +2,25 @@
 
 
     <mat-toolbar>
-  
-      <span>VLAN</span>
+
+      <span>VLANs</span>
 
       <span class="example-spacer"></span>
 
-      <button mat-raised-button color="warn" routerLink="/dashboard/Register-Vlan" >Registrar Nuevo Equipo</button>
-  
-  
+      <button mat-raised-button color="warn" routerLink="/dashboard/new-vlan" >NUEVA VLAN</button>
+
+
     </mat-toolbar>
-  
+
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z5"  >
-  
-     
+
+
       <ng-container matColumnDef="Vlan">
         <th mat-header-cell *matHeaderCellDef> Vlan </th>
         <td mat-cell *matCellDef="let element"> {{element.vlan}} </td>
       </ng-container>
-  
-      
+
+
       <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
@@ -65,21 +65,21 @@
         <th mat-header-cell *matHeaderCellDef> DinamicEnd </th>
         <td mat-cell *matCellDef="let element"> {{element.dynamicEnd}} </td>
       </ng-container>
-        
+
       <ng-container matColumnDef="Acciones" >
           <th mat-header-cell *matHeaderCellDef> Acciones </th>
-          <td mat-cell *matCellDef="let element" style="text-align: right;"> 
+          <td mat-cell *matCellDef="let element" style="text-align: right;">
             <a class="pointer" style="color:green;" matTooltip="Editar VLAN" (click)="editar(element)">  <mat-icon>edit</mat-icon> </a>
           </td>
         </ng-container>
-  
+
            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
+
     </table>
-  
-  
-  
+
+
+
 
 
 </div>

@@ -63,6 +63,10 @@ export class ServiciosService {
 
     }
 
+    getLength(){
+      return this.servicios.length;
+    }
+
     statusTranslate(element : Service):string{
 
       switch(element.status){

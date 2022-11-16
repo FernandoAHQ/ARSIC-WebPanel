@@ -1,55 +1,53 @@
-<div class="contenedorDentro">
+<div class="contenedor">
+
+  <mat-toolbar>
+
+    <span>Computadoras</span>
+
+    <span class="example-spacer"></span>
+
+    <button mat-raised-button color="warn" routerLink="/dashboard/new-pc" >NUEVA COMPUTADORA</button>
 
 
-    <mat-toolbar>
-  
-      <span>COMPUTADORAS</span>
 
-      <span class="example-spacer"></span>
+  </mat-toolbar>
 
-      <button mat-raised-button color="warn" routerLink="/dashboard/Register-Computer" >Registrar Nuevo Equipo</button>
-  
-      
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z5"  >
 
-    </mat-toolbar>
-  
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z5"  >
-  
-     
-      <ng-container matColumnDef="ubication">
-        <th mat-header-cell *matHeaderCellDef> Ubicacion </th>
-        <td mat-cell *matCellDef="let element"> {{element.department.ubication}} </td>
+
+    <ng-container matColumnDef="ubication">
+      <th mat-header-cell *matHeaderCellDef> Ubicacion </th>
+      <td mat-cell *matCellDef="let element"> {{element.department.ubication}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="folio">
+      <th mat-header-cell *matHeaderCellDef> Folio </th>
+      <td mat-cell *matCellDef="let element"> {{element.folio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.department.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acciones" >
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element" style="text-align: right;">
+          <a class="pointer" style="color:green;" matTooltip="Editar Computadora" (click)="editar(element)">  <mat-icon>edit</mat-icon> </a>
+        </td>
       </ng-container>
-  
-      
-      <ng-container matColumnDef="folio">
-        <th mat-header-cell *matHeaderCellDef> Folio </th>
-        <td mat-cell *matCellDef="let element"> {{element.folio}} </td>
-      </ng-container>
 
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.department.name}} </td>
-      </ng-container>
-        
-      <ng-container matColumnDef="Acciones" >
-          <th mat-header-cell *matHeaderCellDef> Acciones </th>
-          <td mat-cell *matCellDef="let element" style="text-align: right;"> 
-            <a class="pointer" style="color:green;" matTooltip="Editar Computadora" (click)="editar(element)">  <mat-icon>edit</mat-icon> </a>
-          </td>
-        </ng-container>
-  
-           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
-    </table>
-  
-  <div *ngIf="!Cargando">
+         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-    <app-paginador [totalResults]="TotalResultados" [limitProducts]="20"  [value]='value'></app-paginador>
-  
-  </div>
-  
+  </table>
+
+<div *ngIf="!Cargando">
+
+  <app-paginador [totalResults]="TotalResultados" [limitProducts]="20"  [value]='value'></app-paginador>
+
+</div>
 
 
 </div>

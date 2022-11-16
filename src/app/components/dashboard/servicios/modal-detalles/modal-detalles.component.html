@@ -1,0 +1,82 @@
+<div class="container">
+
+    <h1 mat-dialog-title>{{data.report.title}} </h1>
+
+
+
+    <div mat-dialog-content>
+
+    <div class="row">
+      <div class="sect sub">
+        <h4>Categoria:</h4>
+        <p>{{data.report.category}}</p>
+       </div>
+
+
+
+        <div class="sect sub">
+          <h4>Fecha y hora:</h4>
+        <p>{{data.createdAt.toString().slice(0, 10)}}, {{data.createdAt.toString().slice(11, 16)}}</p>
+        </div>
+    </div>
+
+
+                  <div class="sect">
+                    <h4>Descripción:</h4>
+                    <p>{{data.report.description}}</p>
+                  </div>
+
+
+
+                  <div class="row">
+                    <div class="sect sub">
+                      <h4>Departamento:</h4>
+                    <p>{{data.report.department.name}}</p>
+                  </div>
+                    <div class="sect sub">
+                      <h4>Ubicación:</h4>
+                    <p>{{data.report.department.ubication}}</p>
+                    </div>
+                  </div>
+
+
+
+                  <div class="row">
+                    <div class="sect sub">
+                      <h4>Encargado: </h4>
+                      <p>{{data.assignedTo.name}}</p>
+                    </div>
+                    <div class="sect sub">
+                      <h4>Estatus:</h4>
+                    <p>{{data.status}}</p>
+                    </div>
+                  </div>
+
+
+
+                 <div *ngIf="data.status == 'Finalizado'">
+                  <div class="sect">
+                    <h4>Descripción del Problema:</h4>
+                  <p> {{data.description}}</p>
+                  </div>
+
+                  <div class="sect">
+                    <h4>Solución: </h4>
+                  <p>{{data.solution}}</p>
+                  </div>
+                 </div>
+
+                  <div class="evidence sect" *ngIf="!data.evidenceImage!.includes('no-image.jpg')">
+                    <h4>Evidencia:</h4>
+                    <img [src]="data.evidenceImage" width="90%">
+                  </div>
+                 </div>
+
+
+                 <div mat-dialog-actions class="actions">
+                  <button mat-button mat-dialog-close>Cerrar</button>
+                </div>
+
+
+  </div>
+

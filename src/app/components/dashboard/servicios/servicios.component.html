@@ -1,19 +1,19 @@
 <mat-toolbar>
 
-    <span>SERVICIOS</span>
+    <span><b>SERVICIOS</b></span>
 
 <span class="example-spacer"></span>
 
     <mat-chip-list aria-label="Dog selection">
         <mat-chip color="warn" selected (click)="goTo('hoy')">
-        <mat-chip-avatar>
-            <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>
+        <mat-chip-avatar  style="background-color: white; color: red;">
+          {{this.serviciosServices.getLength()}}
         </mat-chip-avatar>
         Hoy
         </mat-chip>
-        <mat-chip color="warn" selected (click)="goTo('historial')">
+        <mat-chip color="primary" selected (click)="goTo('historial')">
         <mat-chip-avatar>
-            <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>
+            <img class="history" src="https://www.pngitem.com/pimgs/m/307-3074531_history-icon-png-blue-png-download-transparent-png.png" alt="history"/>
         </mat-chip-avatar>
         Historial
         </mat-chip>
@@ -22,8 +22,5 @@
 
 </mat-toolbar>
 
-    <router-outlet> </router-outlet> 
+    <router-outlet> </router-outlet>
 
-
-<br>
-<br>

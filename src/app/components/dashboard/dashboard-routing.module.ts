@@ -18,6 +18,7 @@ import { RegistrarComputadoraComponent } from './inventario/computadoras/registr
 import { RegistrarApComponent } from './inventario/access-point/registrar-ap/registrar-ap.component';
 import { RegistrarVlanComponent } from './inventario/vlan/registrar-vlan/registrar-vlan.component';
 import { RegistrarTareaComponent } from './tareas/existentes/registrar-tarea/registrar-tarea.component';
+import { RegistrarSwitchComponent } from './inventario/switch/registrar-switch/registrar-switch.component';
 
 const routes: Routes = [
 
@@ -39,10 +40,11 @@ const routes: Routes = [
 
     {path:  'tareas', loadChildren: ()=>import('./tareas/tareas.module').then(m=>m.TareasModule)},
     {path:  'inventario', loadChildren: ()=>import('./inventario/inventario.module').then(m=>m.InventarioModule)},
-    {path:  'Register-Task', component: RegistrarTareaComponent},
-    {path:  'Register-Computer', component: RegistrarComputadoraComponent},
-    {path:  'Register-AP', component: RegistrarApComponent},
-    {path:  'Register-Vlan', component: RegistrarVlanComponent},
+    {path:  'new-task', component: RegistrarTareaComponent},
+    {path:  'new-pc', component: RegistrarComputadoraComponent},
+    {path:  'new-ap', component: RegistrarApComponent},
+    {path:  'new-vlan', component: RegistrarVlanComponent},
+    {path:  'new-switch', component: RegistrarSwitchComponent},
 
   ]}
 ];

@@ -25,7 +25,6 @@ export class SocketWebService{
     }
 
     connect(){
-
       const Token = localStorage.getItem('token')
 
       this.socket= io(url, {
@@ -39,6 +38,7 @@ export class SocketWebService{
         }
 
       })
+
     }
 
     status(){

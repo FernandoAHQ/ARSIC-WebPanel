@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiciosService } from 'src/app/services/admin-role/servicios.service';
 
 @Component({
   selector: 'app-servicios',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class ServiciosComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(
+    public serviciosServices : ServiciosService,
+    private router:Router) { }
 
   ngOnInit(): void {
   }

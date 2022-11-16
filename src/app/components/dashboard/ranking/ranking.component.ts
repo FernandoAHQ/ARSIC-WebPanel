@@ -15,13 +15,13 @@ import { environment } from '../../../../environments/environment.prod';
 export class RankingComponent implements OnInit {
 
   ranking!: RankingElement [];
-  
-  get _Users(){  
-    
+
+  get _Users(){
+
     return this.ranking
-  
+
     }
-  
+
 
 
   constructor(
@@ -32,7 +32,7 @@ export class RankingComponent implements OnInit {
   ELEMENT_DATA_TABLE: RankingElement[] = this._Users;
   displayedColumns: string[] = ['Foto', 'Nombre', 'Puntos'];
   dataSource = new  MatTableDataSource <RankingElement>(this.ELEMENT_DATA_TABLE);
-  
+
 
   ngOnInit(): void {
 
@@ -54,8 +54,8 @@ export class RankingComponent implements OnInit {
 
         this.dataSource.data.forEach((elem)=>{
 
-          
-          elem.user.image= `${url}/images/users/${elem.user.image}`
+
+          elem.user.image= `${url}/api/images/users/${elem.user.image}`
 
         });
 

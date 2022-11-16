@@ -1,0 +1,45 @@
+.sect{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2{
+  margin-bottom: 0;
+}
+
+.assign{
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  justify-content: space-between;
+}
+
+
+h1{
+  font-size: 42px;
+  font-weight: 600;
+  margin-top: 32px;
+}
+
+h4{
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.actions{
+  align-self: flex-end;
+}

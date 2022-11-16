@@ -1,7 +1,7 @@
 .imagen{
 
     display: flex;
-    margin-top: 10%;
+    margin-top: 5%;
     justify-content: center;
     height: 100%;
     align-items: center;
@@ -10,6 +10,6 @@
 
 .divimagen{
     width: 100%;
-    max-width: 330px;
+    max-width: 480px;
     text-align: center;
 }

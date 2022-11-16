@@ -41,7 +41,7 @@ export class VerTareaComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.url = environment.baseURL + "/images/users/"
+    this.url = environment.baseURL + "api/images/users/"
 
 
     this.cargarUsersSite();

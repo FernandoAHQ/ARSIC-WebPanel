@@ -10,6 +10,8 @@ import { query } from '@angular/animations';
 import { CalificarComponent } from './calificar/calificar.component';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from '../../../../environments/environment';
+import { ModalDelServicioComponent } from '../ServiciosHoy/modal-del-servicio/modal-del-servicio.component';
+import { ModalDetallesComponent } from '../servicios/modal-detalles/modal-detalles.component';
 
 
 
@@ -141,6 +143,25 @@ export class ServiciosHistorialComponent implements OnInit {
   calificar(servicio : Service  ){
 
     this.dialog.open(CalificarComponent, {height: '600px', width: '450px', data:servicio})
+
+
+    console.log(servicio);
+
+  }
+
+  detalles(servicio : Service  ){
+
+    this.dialog.open(ModalDetallesComponent, {height: '600px', width: '450px', data:servicio})
+
+
+    console.log(servicio);
+
+  }
+
+
+  asignar (servicio:Service ){
+
+    this.dialog.open(ModalDelServicioComponent, {width: '30%', height: '80%',data:servicio})
 
 
     console.log(servicio);
