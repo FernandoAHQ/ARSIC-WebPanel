@@ -9,7 +9,7 @@ import { ModalDetallesComponent } from './modal-detalles/modal-detalles.componen
 @NgModule({
   declarations: [
 
-  
+
     ModalDetallesComponent
   ],
   imports: [
