@@ -71,11 +71,18 @@ export class SocketWebService{
         grade: grade
       });
 
+
+
       console.log("SENT TO SERVER: " + {
         to: '',
         from: '',
         grade: grade
       });
+    }
+
+    enviarServicio(service:any){
+      this.socket?.emit("depto-report", service)
+
     }
 
 

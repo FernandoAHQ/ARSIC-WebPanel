@@ -1,32 +1,59 @@
 <div class="container">
 
-
-  <div class="form" role="group" [formGroup]="parts">
-
+  <h1>Nuevo Servicio</h1>
 
 
+    <form [formGroup]="RegisForm" (submit)="enviar()">
+    <mat-grid-list cols="1" rowHeight="70px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+            <mat-form-field appearance="fill" class="ancho" >
+                <mat-label>Titulo</mat-label >
+                <input class="row" matInput autocomplete="off" formControlName="title">
+              </mat-form-field>
+
+        </mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="1" [rowspan]="4">
+
+            <mat-form-field appearance="fill" class="ancho" >
+                <mat-label>Descripcion del Problema</mat-label>
+                <textarea class="row textArea" matInput autocomplete="off" formControlName="description" rows="15" cols="40"></textarea>
+              </mat-form-field>
+
+        </mat-grid-tile>
 
 
 
-    <mat-form-field class="title" formControlName="title" appearance="fill">
-      <mat-label>Título del Reporte</mat-label>
-      <input placeholder="Título del Reporte">
-    </mat-form-field>
+       <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+        <mat-form-field class="ancho" appearance="fill">
+          <mat-label>Seleccione el tipo de problema</mat-label>
+          <mat-select [(value)]="selected">
+            <mat-option value="Telefono">Telefono</mat-option>
+            <mat-option value="Computadora">Computadora</mat-option>
+            <mat-option value="Internet">Internet</mat-option>
+            <mat-option value="Otro">Otro</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+       </mat-grid-tile>
 
 
 
-    <mat-form-field class="area" formControlName="area" appearance="fill">
-      <mat-label>Título del Reporte</mat-label>
-      <textarea placeholder="Título del Reporte" [cols]="35" [rows]="15"></textarea>
-    </mat-form-field>
+        <mat-grid-tile [colspan]="1" [rowspan]="1" class="ancho">
+            <button   mat-button mat-dialog-close>Cerrar</button>
+            <button   type="submit"  mat-raised-button color="primary" mat-dialog-close  >Enviar</button>
 
-    <mat-form-field formControlName="cat">
-      <mat-label>Categoría</mat-label>
-      <mat-select>
-        <mat-option value="1">Opcion 1</mat-option>
-        <mat-option value="2">Opcion 2</mat-option>
-      </mat-select>
-    </mat-form-field>
 
-  </div>
-</div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+    </form>
+
+
+
+ </div>

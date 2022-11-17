@@ -32,6 +32,7 @@ import { ToolbarDeptComponent } from './inicio/toolbar-dept/toolbar-dept.compone
 import { ToolbarAdminComponent } from './inicio/toolbar-admin/toolbar-admin.component';
 import { NewReportComponent } from './user-role/new-report/new-report.component';
 import { StatusLabelComponent } from '././servicios/status-label/status-label.component';
+import { RankedCardComponent } from './ranking/ranked-card/ranked-card.component';
 
 
 
@@ -66,7 +67,8 @@ import { StatusLabelComponent } from '././servicios/status-label/status-label.co
     ToolbarDeptComponent,
     ToolbarAdminComponent,
     NewReportComponent,
-    StatusLabelComponent
+    StatusLabelComponent,
+    RankedCardComponent
   ],
   imports: [
     CommonModule,

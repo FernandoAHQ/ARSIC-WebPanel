@@ -1,11 +1,5 @@
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.form{
-  display: flex;
-  flex-direction: column;
+.ancho {
+  width: 80%;
 }
 
 

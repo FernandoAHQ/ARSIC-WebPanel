@@ -18,8 +18,8 @@ export class RegistrarDeptoService {
   registrar(deptoForm : deptoForm){
 
     const url= `${this.baseURL}/departments/create`;
-
     return this.http.post(url,deptoForm)
+
 
 
 

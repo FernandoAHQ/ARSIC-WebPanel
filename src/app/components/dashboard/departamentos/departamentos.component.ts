@@ -13,22 +13,22 @@ import { _getFocusedElementPierceShadowDom } from '@angular/cdk/platform';
 export class DepartamentosComponent implements OnInit {
 
   constructor(
-    private fb:FormBuilder, 
-    private AllDepartmentsService: AllDepartmentsService 
+    private fb:FormBuilder,
+    private AllDepartmentsService: AllDepartmentsService
     ) { }
 
   ngOnInit(): void {
     this._getAllDepartaments();
   }
 
-  get _Departments(){  
-    
+  get _Departments(){
+
     return this.AllDepartmentsService.DataTable
-  
+
   }
 
   ELEMENT_DATA_TABLE: Department[] = this._Departments;
-  displayedColumns: string[] = ['Nombre', 'Usuario', 'Ubicacion','Acciones'];
+  displayedColumns: string[] = ['Nombre', 'Usuario', 'Ubicacion'];
   dataSource = new  MatTableDataSource <Department>(this.ELEMENT_DATA_TABLE);
 
   applyFilter(event: Event) {
@@ -36,7 +36,7 @@ export class DepartamentosComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  _getAllDepartaments(){ 
+  _getAllDepartaments(){
     this.AllDepartmentsService.AllDepartments_API().subscribe(
 
       resp=> this.dataSource.data = resp.departments as Department[]

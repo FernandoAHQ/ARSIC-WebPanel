@@ -5,6 +5,8 @@ import {  } from '../../../../services/registra-usuario.service';
 import { RegistrarDeptoService } from '../../../../services/registrar-depto.service';
 import { AllUsersTableService } from '../../../../services/all-users-table.service';
 import { DataUsers } from 'src/app/interfaces/InterfaceAllUser';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -15,9 +17,9 @@ import { DataUsers } from 'src/app/interfaces/InterfaceAllUser';
 export class CrearDeptoComponent implements OnInit {
 
 
-  
 
-  
+
+
 
   role = new FormControl('', Validators.required);
   DataUsers :  DataUsers[] = [];
@@ -25,7 +27,8 @@ export class CrearDeptoComponent implements OnInit {
   DeptoForm: FormGroup;
 
   constructor(
-    private fb:FormBuilder, 
+    private Router:Router,
+    private fb:FormBuilder,
     private _snackBar: MatSnackBar,
     private RegistrarDeptoService: RegistrarDeptoService,
     private AllUsersTableService: AllUsersTableService ) {
@@ -34,14 +37,14 @@ export class CrearDeptoComponent implements OnInit {
         name: ['',Validators.required],
         user: ['',Validators.required],
         ubication:['',Validators.required],
-       
+
       })
      }
 
-     get _Users(){  
-    
+     get _Users(){
+
       return this.AllUsersTableService.DataTable
-    
+
       }
 
     ngOnInit(): void {
@@ -64,17 +67,18 @@ export class CrearDeptoComponent implements OnInit {
 
     console.log({  name, user, ubication})
 
-       this.RegistrarDeptoService.registrar({  name, user, ubication}).subscribe(resp=>{
-         console.log(resp)
-       })
+       this.RegistrarDeptoService.registrar({  name, user, ubication}).subscribe(
+        resp=> this.toast(name)
+        , error => this.error('Se produjo un error: ' + error.error.message)
+        )
   }
-  
-  
 
-  MensajeUsuarioOk(usuario : string){
 
-    const mensaje = "Se creó correctamente el usuario "+ `${usuario}` + " !!!"
-    
+
+  toast(dep : string){
+
+    const mensaje = "Se creó correctamente el departamento: "+ `${dep}`
+
     this._snackBar.open(mensaje,'',{
 
       duration: 5000,

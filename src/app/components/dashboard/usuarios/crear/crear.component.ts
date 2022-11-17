@@ -10,7 +10,7 @@ interface Roles {
 }
 
 
-  
+
 
 
 @Component({
@@ -19,11 +19,11 @@ interface Roles {
   styleUrls: ['./crear.component.css']
 })
 
-  
+
 
 export class CrearComponent implements OnInit {
 
- 
+
 
   roles: Roles[] = [
     {value: 'ADMIN_ROLE', viewValue: 'ADMIN_ROLE'},
@@ -38,7 +38,7 @@ export class CrearComponent implements OnInit {
 
   constructor(
     private Router:Router,
-    private fb:FormBuilder, 
+    private fb:FormBuilder,
     private _snackBar: MatSnackBar,
     private RegistraUsuarioService: RegistraUsuarioService) {
 
@@ -62,25 +62,20 @@ export class CrearComponent implements OnInit {
 
     this.RegistraUsuarioService.registrar(name,user,role,password)
       .subscribe( resp =>{
-        if(resp){
 
-          this.MensajeUsuarioOk(name)
+        this.MensajeUsuarioOk(name)
+        this.Router.navigateByUrl("/dashboard/usuarios")
 
-        } else{
-
-          this.error("Ocurrio un Error")
-        }
-        
-      })
+      }, error=> this.error('Se produjo un error: ' + error.error.message))
 
   }
 
-  
+
 
   MensajeUsuarioOk(usuario : string){
 
-    const mensaje = "Se creó correctamente el usuario "+ `${usuario}` + " !!!"
-    
+    const mensaje = "Se creó correctamente el usuario "+ `${usuario}`
+
     this._snackBar.open(mensaje,'',{
 
       duration: 5000,
@@ -89,7 +84,7 @@ export class CrearComponent implements OnInit {
 
     })
 
-    this.Router.navigateByUrl("/dashboard/usuarios")
+
   }
 
     error(mensaje : string){
@@ -104,13 +99,13 @@ export class CrearComponent implements OnInit {
 
   }
 
-  
 
-  
+
+
 
 
 
 
 }
 
-  
+
