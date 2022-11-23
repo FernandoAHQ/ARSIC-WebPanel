@@ -41,6 +41,20 @@ export class ServiciosService {
 
   }
 
+  leerReports(data : any[]){
+
+
+    this.servicios = [];
+      data.forEach(element => {
+
+        element.status = this.statusTranslate(element);
+        this.servicios.push(element as Service);
+      });
+        this.servicios$.next(this.servicios);
+
+
+  }
+
     getServicios():Observable<Service[]>{
         return this.servicios$.asObservable();
     }

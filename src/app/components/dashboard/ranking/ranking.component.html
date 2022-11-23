@@ -1,9 +1,6 @@
 <mat-toolbar>
-
   <span><b>RANKING</b></span>
-
   <span class="example-spacer"></span>
-
 </mat-toolbar>
 
 
@@ -11,4 +8,6 @@
 
   <ranked-card *ngFor="let rank of dataSource.data; let i = index" [rank]="i+1" [name]="rank.user.name" [img]="rank.user.image" [points]="rank.points.toString()"></ranked-card>
 
+  
+  
 </div>

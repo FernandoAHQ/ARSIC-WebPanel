@@ -31,6 +31,8 @@ import { TareasComponent } from './tareas/tareas.component';
 import { ToolbarDeptComponent } from './inicio/toolbar-dept/toolbar-dept.component';
 import { ToolbarAdminComponent } from './inicio/toolbar-admin/toolbar-admin.component';
 import { NewReportComponent } from './user-role/new-report/new-report.component';
+import { MisReportesComponent } from './user-role/mis-reportes/mis-reportes.component';
+import { DetallesReporteComponent } from './user-role/mis-reportes/detalles/detalles.component';
 import { StatusLabelComponent } from '././servicios/status-label/status-label.component';
 import { RankedCardComponent } from './ranking/ranked-card/ranked-card.component';
 
@@ -68,7 +70,9 @@ import { RankedCardComponent } from './ranking/ranked-card/ranked-card.component
     ToolbarAdminComponent,
     NewReportComponent,
     StatusLabelComponent,
-    RankedCardComponent
+    RankedCardComponent,
+    DetallesReporteComponent,
+    MisReportesComponent
   ],
   imports: [
     CommonModule,

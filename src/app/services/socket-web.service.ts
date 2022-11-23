@@ -58,7 +58,16 @@ export class SocketWebService{
         console.log(payload);
       })
 
+      this.socket?.on('reports-list', (payload)=>{
+
+        console.log("PASE POR AQUI ");
+        this.servicios.leerReports(payload);
+        console.log(payload);
+      })
+
      }
+
+
 
      asignarServicio(assigned: AssignInterface){
       this.socket?.emit("assigned", assigned);

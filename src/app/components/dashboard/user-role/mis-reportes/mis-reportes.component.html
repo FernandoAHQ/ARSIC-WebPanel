@@ -1,0 +1,87 @@
+<div class="contenedor">
+
+
+    <mat-toolbar>
+
+        <span>Mis Servicios</span>
+
+        <span class="example-spacer"></span>
+
+
+
+      </mat-toolbar>
+
+    <div class="reports" *ngIf="dataSource.data.length>0;else no_reports">
+
+        <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z5" >
+
+            <ng-container matColumnDef="Fecha">
+                <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                <td mat-cell *matCellDef="let element" >
+                    {{element.report.createdAt}}
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Titulo">
+                <th mat-header-cell *matHeaderCellDef> Titulo </th>
+                <td mat-cell *matCellDef="let element"  class="negrita title">
+                    {{element.report.title}}
+                </td>
+            </ng-container>
+
+
+
+            <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+
+                <td mat-cell *matCellDef="let element">
+                        {{element.status}}
+                </td>
+            </ng-container>
+
+
+
+            <ng-container matColumnDef="Acciones">
+                <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                <td mat-cell *matCellDef="let element">
+
+                    <button mat-raised-button  color="warn" (click)="Detalles(element)">Detalles</button>
+
+
+                </td>
+            </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </div>
+
+
+    <br>
+
+
+
+
+</div>
+
+
+    <ng-template #no_reports>
+        <div class="no-reports">
+        <div class="circle">
+            <i>&#10003;</i>
+        </div>
+        <h2>¡Sin Reportes!</h2>
+
+        </div>
+
+
+    </ng-template>
+

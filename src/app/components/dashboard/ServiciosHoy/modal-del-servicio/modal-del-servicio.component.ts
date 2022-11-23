@@ -18,7 +18,7 @@ export class ModalDelServicioComponent implements OnInit {
   UsersSite! : ChicoServicio[];
   Severities!: Severity[];
   DataService!: AssignInterface
-  
+
   constructor(
     private socketWebService: SocketWebService,
     private ServicesByStatusService: ServicesByStatusService,
@@ -29,7 +29,7 @@ export class ModalDelServicioComponent implements OnInit {
 
     this.cargarUsersSite();
     this.cargarSeverities();
-  console.log(this.data);      
+  console.log(this.data);
   }
 
 
@@ -48,6 +48,7 @@ export class ModalDelServicioComponent implements OnInit {
 
      console.log(this.DataService);
      this.socketWebService.asignarServicio(this.DataService);
+     window.location.reload();
 
 
   }

@@ -19,6 +19,7 @@ import { RegistrarApComponent } from './inventario/access-point/registrar-ap/reg
 import { RegistrarVlanComponent } from './inventario/vlan/registrar-vlan/registrar-vlan.component';
 import { RegistrarTareaComponent } from './tareas/existentes/registrar-tarea/registrar-tarea.component';
 import { RegistrarSwitchComponent } from './inventario/switch/registrar-switch/registrar-switch.component';
+import { MisReportesComponent } from './user-role/mis-reportes/mis-reportes.component';
 
 const routes: Routes = [
 
@@ -36,6 +37,8 @@ const routes: Routes = [
     {path:  'crearPeriodo', component: CrearPeriodoComponent},
     {path:  'asignar', component: AsignarServiceComponent},
     {path:  'servicios', loadChildren: ()=>import('./servicios/servicios.module').then(m=>m.ServiciosModule)},
+    {path:  'mis-reportes', component: MisReportesComponent},
+
 
 
     {path:  'tareas', loadChildren: ()=>import('./tareas/tareas.module').then(m=>m.TareasModule)},
