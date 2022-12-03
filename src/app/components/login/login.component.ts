@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
-import { User } from '../../interfaces/Interfaces';
+import { LoginInterface, User } from '../../interfaces/Interfaces';
 import { SocketWebService } from '../../services/socket-web.service';
 
 @Component({
@@ -46,10 +46,11 @@ export class LoginComponent implements OnInit {
       .subscribe( resp =>{
         if(resp){
 
-          this.DarBievenida(this._User.name)
-
+          if((resp as LoginInterface).status)
+            this.DarBievenida(this._User.name)
+          else{this.error((resp as LoginInterface).message||'Error')}
         } else{
-
+          this.error("Error Conectando al Servidor")
         }
 
       })
@@ -72,9 +73,9 @@ DarBievenida(nombre : string){
 
   }
 
-  error(){
+  error(msg:string){
 
-    this._snackBar.open('Usuario y/o contraseña incorrectos!!','',{
+    this._snackBar.open(msg,'',{
 
       duration: 5000,
       horizontalPosition: 'center',

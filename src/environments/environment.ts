@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  //baseURL: 'http://10.1.41.30:4000'
-  baseURL: 'http://187.157.176.198'
- // baseURL: 'https://arsic.herokuapp.com'
+  baseURL: 'http://localhost:4000'
+//  baseURL: 'http://187.157.176.198'
+ // baseURL: 'https://arsicserver.onrender.com'
 };
 
 /*

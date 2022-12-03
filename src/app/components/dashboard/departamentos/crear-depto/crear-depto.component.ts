@@ -71,6 +71,7 @@ export class CrearDeptoComponent implements OnInit {
         resp=> this.toast(name)
         , error => this.error('Se produjo un error: ' + error.error.message)
         )
+      window.location.reload();
   }
 
 

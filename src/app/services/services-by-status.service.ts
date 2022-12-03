@@ -5,7 +5,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 import { Service, RespTableServices, GetRoles, Role, GetStatus, Status, GetSeverities, Severity, GetActivateUsers, ChicoServicio, GetAllComputers, Computer, Ap, GetAllAps, GetAllVlans, VLAN, Switch, GetAllSwitches, RespRegisterVLAN, RespUpdateVLAN, RegisterAp, RespUpdateAp, RespTableTasks, TaskLogsResponse } from '../interfaces/RespApi';
 import { RespBitacora, Bitacora, RespuestaCrearPeriodo, Tarea, RespuestaAsignarTarea, taskLog } from '../interfaces/Interfaces';
 import { Ranking } from '../interfaces/interfaceRanking';
-import { Department, RespDepartment, RespRegisterPC } from '../interfaces/InterfaceAllDepartment';
+import { Department, RespDepartment, RespRegisterPC, RespSpecs } from '../interfaces/InterfaceAllDepartment';
 
 
 
@@ -99,6 +99,18 @@ export class ServicesByStatusService {
     return this.http.get<RespDepartment>(url).pipe(
       tap(resp=>{
         this.Deparments = resp.departments
+      })
+    )
+
+  }
+
+  getSpecs(){
+
+    const url = `${this.baseURL}/inventory/specs`
+
+    return this.http.get<RespSpecs>(url).pipe(
+      tap(resp=>{
+        //this.Deparments = resp.departments
       })
     )
 
@@ -297,13 +309,31 @@ export class ServicesByStatusService {
   }
 
 
-  PostRegistrarPC(department:any, folio:any, status: any){
+  PostRegistrarPC(
+    department:any, folio:any, status: any,
+    os:any, processor: any, ram:any, motherboard:any, type:any, capacity:any
+    ){
 
     const url= `${this.baseURL}/inventory/computers/register`
-    const body={department, folio, status}
+    const body={
+      department,
+      folio,
+      status,
+      specs:{
+        os,
+        processor,
+        ram,
+        motherboard,
+        storage:{
+          type,
+          capacity
+        }
+      }
+    }
     console.log(body);
     return this.http.post<RespRegisterPC>(url, body).pipe(
       tap(resp=>{
+        console.log("RESP--->")
         console.log(resp.status);
 
       })
@@ -313,9 +343,21 @@ export class ServicesByStatusService {
   }
 
 
-  ActualizarPC(id:any, department:any, folio:any, status: any){
+  ActualizarPC(id:any, department:any, folio:any, status: any,
+    os:any, processor: any, ram:any, motherboard:any, type:any, capacity:any){
     const url= `${this.baseURL}/inventory/computers/update`
-    const body={id,department, folio, status}
+    const body={
+      id,department, folio, status,
+      specs:{
+        os,
+        processor,
+        ram,
+        motherboard,
+        storage:{
+          type,
+          capacity
+        }
+      }}
     console.log(body);
 
     return this.http.post(url,body).pipe(

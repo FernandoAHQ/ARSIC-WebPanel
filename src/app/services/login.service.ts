@@ -25,12 +25,13 @@ export class LoginService {
 
       const url= `${this.baseURL}/auth/login`;
       const body= {username, password};
-
+      console.log(username)
 
 
      return this.http.post<LoginInterface>(url,body)
       .pipe(
         tap(resp => {
+       //   console.log(resp);
           if(resp.status){
             localStorage.setItem('role',resp.user!.role!);
             if(resp.deptartament)localStorage.setItem('dept',resp.deptartament!.name!);
@@ -38,17 +39,20 @@ export class LoginService {
             localStorage.setItem('token',resp.accessToken!);
             localStorage.setItem('menu',JSON.stringify(resp.menu!));
             localStorage.setItem('IdAdmin', resp.user?._id!);
-           // console.log(resp)
+
             this._usuario=resp.user!;
           }
           else if (resp.status!){console.log(resp.message);}
         }),
-        map(resp=> resp.status),
         catchError( err => of(false) )
 
       )
 
 
+  }
+
+  logout(){
+    localStorage.clear
   }
 
   validarToken (): Observable<boolean> {

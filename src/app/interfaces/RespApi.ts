@@ -1,3 +1,4 @@
+import { Motherboard, OperatingSystem, Processor, RAM } from "./InterfaceAllDepartment";
 import { Tarea, taskLog } from "./Interfaces";
 
 export interface RespTableServices {
@@ -114,9 +115,17 @@ export interface Computer {
     _id:        string;
     department: Department;
     folio:      string;
-    macAddress: string;
     status:     string;
-    encargado:  Encargado;
+    specs: {
+      os: OperatingSystem,
+      processor: Processor,
+      ram: RAM,
+      motherboard: Motherboard,
+      storage: {
+        type: String,
+        capacity: String
+      }
+    }
 }
 
 export interface Department {

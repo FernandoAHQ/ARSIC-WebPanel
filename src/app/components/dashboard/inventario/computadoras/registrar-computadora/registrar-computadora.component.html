@@ -1,29 +1,14 @@
 <div class="contenedor">
     <mat-toolbar>
-        <span>Resgistrar Nueva Computadora</span>
+        <span>Registrar Nueva Computadora</span>
     </mat-toolbar>
-    
-    
-    <mat-card style="margin-top: 20 px;" > 
+
+
+
+    <mat-card style="margin-top: 20 px; " >
         <form [formGroup]="RegisForm" (ngSubmit)="registrarPC()">
 
-        <mat-grid-list cols="3" rowHeight="70px">
-
-            <mat-grid-tile [colspan]="1" [rowspan]="1">
-
-            <mat-form-field appearance="fill" class="select">
-                <mat-label>Departamanto</mat-label>
-                <mat-select formControlName="Departamento" [(value)]="DeparmentSelected">
-                  <mat-option *ngFor="let Deparment of Deparments" [value]= "Deparment._id" > {{Deparment.name}} </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-grid-tile>
-
-            <mat-grid-tile [colspan]="2" [rowspan]="4">
-
-                <img src="/assets/img/ordenador.png" style="width: 30%;" >
-
-            </mat-grid-tile>
+        <mat-grid-list cols="3" rowHeight="70px" >
 
 
             <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -34,6 +19,98 @@
                   </mat-form-field>
 
             </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="2" [rowspan]="7">
+
+                <img src="/assets/img/ordenador.png" style="height: 80%;" >
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+              <mat-form-field appearance="fill" class="select">
+                  <mat-label>Departamanto</mat-label>
+                  <mat-select formControlName="Departamento" [(value)]="DeparmentSelected">
+                    <mat-option *ngFor="let Deparment of Deparments" [value]= "Deparment._id" > {{Deparment.name}} </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+
+
+               <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+              <mat-form-field appearance="fill" class="select">
+                  <mat-label>Sistema Operativo</mat-label>
+                  <mat-select formControlName="OS" [(value)]="osSelected">
+                    <mat-option *ngFor="let os of osList" [value]= "os._id" > {{os.name}} {{os.version}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+
+
+
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+              <mat-form-field appearance="fill" class="select">
+                  <mat-label>Procesador</mat-label>
+                  <mat-select formControlName="Processor" [(value)]="processorSelected">
+                    <mat-option *ngFor="let processor of processorList" [value]= "processor._id" > {{processor.brand}} {{processor.model}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+
+
+
+
+
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                <mat-form-field appearance="fill" class="select">
+                    <mat-label>Tarjeta Madre</mat-label>
+                    <mat-select formControlName="Motherboard" [(value)]="motherboardSelected">
+                      <mat-option *ngFor="let mother of motherboardList" [value]= "mother._id" > {{mother.brand}} {{mother.model}} </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                  <mat-form-field appearance="fill" class="select">
+                      <mat-label>RAM</mat-label>
+                      <mat-select formControlName="RAM" [(value)]="ramSelected">
+                        <mat-option *ngFor="let ram of ramList" [value]= "ram._id" > {{ram.type}}  {{ram.size}} </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </mat-grid-tile>
+
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+
+                  <mat-form-field appearance="fill" class="select">
+                    <mat-label>Tipo</mat-label>
+                    <mat-select formControlName="StorageType" [(value)]="storageTypeSelected">
+                      <mat-option value= "HDD" > HDD </mat-option>
+                      <mat-option value= "SSD" > SSD </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="input">
+                    <mat-label>GB</mat-label>
+                    <input matInput autocomplete="off" formControlName="StorageCapacity" type="number">
+
+                  </mat-form-field>
+
+                  </mat-grid-tile>
+
+
+
+
+
+
+
 
 
             <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -54,8 +131,8 @@
 
         </mat-grid-list>
 
-        
+
         </form>
     </mat-card>
- 
+
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Department, RespDepartment } from 'src/app/interfaces/InterfaceAllDepartment';
+import { Department, Motherboard, OperatingSystem, Processor, RAM, RespDepartment } from 'src/app/interfaces/InterfaceAllDepartment';
 import { ServicesByStatusService } from '../../../../../services/services-by-status.service';
 import { Router } from '@angular/router';
 
@@ -18,15 +18,26 @@ export class RegistrarComputadoraComponent implements OnInit {
 
   RegisForm: FormGroup;
   Deparments!: Department[];
+  osList!: OperatingSystem[];
+  processorList!: Processor[];
+  motherboardList!: Motherboard[];
+  ramList!: RAM[];
+
 
   StatusAll: Status[] = [
     {value: 'Activo'},
     {value: 'Inactivo'},
-    {value: 'Mantenimiento'},
+    {value: 'Requisición'},
   ];
 
   DeparmentSelected: string  = "";
   StatusSelected:    string  = "";
+  osSelected: string  = "";
+  processorSelected:    string  = "";
+  ramSelected: string  = "";
+  storageTypeSelected: string  = "";
+  storageCapacitySelected: string  = "";
+  motherboardSelected: string = "";
 
   constructor(
     private fb:FormBuilder,
@@ -39,6 +50,12 @@ export class RegistrarComputadoraComponent implements OnInit {
       Departamento: ['',Validators.required],
       Folio: ['',Validators.required],
       Status:['',Validators.required],
+      OS:['',Validators.required],
+      Processor:['',Validators.required],
+      Motherboard:['',Validators.required],
+      RAM:['',Validators.required],
+      StorageType:['',Validators.required],
+      StorageCapacity:['',Validators.required],
     })
   }
 
@@ -46,6 +63,7 @@ export class RegistrarComputadoraComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDepartments()
+    this.getSpecs()
   }
 
 
@@ -54,10 +72,19 @@ export class RegistrarComputadoraComponent implements OnInit {
     this.ServicesByStatusService.Get_Departments().subscribe(
       resp=>{
         this.Deparments = resp.departments;
-        console.log(this.Deparments);
       }
     )
 
+  }
+
+  getSpecs(){
+    this.ServicesByStatusService.getSpecs().subscribe(
+      resp=>{
+        this.osList = resp.systems;
+        this.processorList = resp.processors;
+        this.motherboardList = resp.motherboards;
+        this.ramList = resp.rams;
+      })
   }
 
   registrarPC(){
@@ -65,8 +92,17 @@ export class RegistrarComputadoraComponent implements OnInit {
     const deparment = this.RegisForm.value.Departamento
     const folio = this.RegisForm.value.Folio
     const status = this.RegisForm.value.Status
+    const os = this.RegisForm.value.OS
+    const processor = this.RegisForm.value.Processor
+    const board = this.RegisForm.value.Motherboard
+    const ram = this.RegisForm.value.RAM
+    const storageType = this.RegisForm.value.StorageType
+    const storageCapacity = this.RegisForm.value.StorageCapacity
 
-    this.ServicesByStatusService.PostRegistrarPC(deparment, folio, status).subscribe(
+
+//    os, processor, ram, motherboard, type, capacity
+    this.ServicesByStatusService.PostRegistrarPC(deparment, folio, status,
+      os, processor, ram, board, storageType, storageCapacity).subscribe(
       resp=>{
         if(resp.status){
           this.MensajeUsuarioOk(folio)
@@ -85,7 +121,7 @@ export class RegistrarComputadoraComponent implements OnInit {
 
   MensajeUsuarioOk(MSG : string){
 
-    const mensaje = "Se creó correctamente la computadora "+ `${MSG}` + " !!!"
+    const mensaje = "¡La computadora "+ `${MSG}` + " se creó exitosamente!"
 
     this._snackBar.open(mensaje,'',{
 

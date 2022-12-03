@@ -5,6 +5,7 @@ import { Computer } from 'src/app/interfaces/RespApi';
 import { ServicesByStatusService } from '../../../../services/services-by-status.service';
 import { ModificarComputadorasComponent } from './modificar-computadoras/modificar-computadoras.component';
 import { ActivatedRoute } from '@angular/router';
+import { RegistrarComputadoraComponent } from './registrar-computadora/registrar-computadora.component';
 
 @Component({
   selector: 'app-computadoras',
@@ -24,7 +25,7 @@ export class ComputadorasComponent implements OnInit {
 
     this.activatedRoute.queryParams.subscribe((querys:any)=>{
 
-      
+
 
       if(!querys.page){
         this.PaginaActual= 1;
@@ -41,10 +42,10 @@ export class ComputadorasComponent implements OnInit {
     })
 
   }
-  get data(){  
-    
+  get data(){
+
     return this.ServicesByStatusService.DataInventory
-  
+
   }
 
   value=""
@@ -73,9 +74,18 @@ export class ComputadorasComponent implements OnInit {
 
   editar(pc:Computer){
 
-    this.dialog.open(ModificarComputadorasComponent, {width: '400px',data:pc})
+    this.dialog.open(ModificarComputadorasComponent, {width: '70vw',data:pc})
 
 
   }
+
+
+  register(){
+
+    this.dialog.open(RegistrarComputadoraComponent, {width: '70vw'})
+
+
+  }
+
 
 }
