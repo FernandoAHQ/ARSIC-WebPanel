@@ -6,6 +6,7 @@ import { ServicesByStatusService } from '../../../../../services/services-by-sta
 import { Router } from '@angular/router';
 import { Computer } from 'src/app/interfaces/RespApi';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ThisReceiver } from '@angular/compiler';
 
 interface Status {
   value: string;
@@ -67,17 +68,22 @@ export class ModificarComputadorasComponent implements OnInit {
   ngOnInit(): void {
     this.getDepartments()
     this.getSpecs()
-    this.DeparmentSelected=this.data._id
-    this.StatusSelected=this.data.status
-    this.osSelected=this.data.specs.os._id
-    this.processorSelected=this.data.specs.processor._id
-    this.ramSelected=this.data.specs.ram._id
-    this.storageTypeSelected=this.data.specs.storage.type
-    this.storageCapacitySelected=this.data.specs.storage.capacity
-    this.motherboardSelected=this.data.specs.motherboard._id
+    this.storageTypeSelected = this.data.specs.storage.type
+    console.log('storage: '+ this.storageTypeSelected);
+    this.RegisForm.setValue({
+      Departamento: this.data.department._id,
+      Folio: this.data.folio,
+      Status: this.data.status,
+      OS: this.data.specs.os,
+      Processor: this.data.specs.processor,
+      Motherboard: this.data.specs.motherboard,
+      RAM: this.data.specs.ram,
+      StorageType: this.data.specs.storage.type,
+      StorageCapacity: this.data.specs.storage.capacity,
+    })
 
-    console.log(this.data)
   }
+
 
   getDepartments(){
 

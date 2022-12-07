@@ -148,7 +148,7 @@ export interface Bitacora {
 export interface RespuestaCrearPeriodo {
   status:  boolean;
   message: string;
-  period:  Period;
+  periodoNuevo:  Period;
 }
 export interface RespuestaAsignarTarea {
   status:  boolean;

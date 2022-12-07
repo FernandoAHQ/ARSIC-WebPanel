@@ -44,13 +44,15 @@ export class LoginComponent implements OnInit {
 
     this.LoginService.login(user, password)
       .subscribe( resp =>{
+      console.log(resp);
+
         if(resp){
 
           if((resp as LoginInterface).status)
             this.DarBievenida(this._User.name)
           else{this.error((resp as LoginInterface).message||'Error')}
         } else{
-          this.error("Error Conectando al Servidor")
+          this.error("Datos Incorrectos")
         }
 
       })

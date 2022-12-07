@@ -18,7 +18,7 @@ export class CrearPeriodoComponent implements OnInit {
     private fb:FormBuilder,
     private _snackBar: MatSnackBar,
     private ServicesByStatusService: ServicesByStatusService
-    ) { 
+    ) {
 
     this.RegisForm =  this.fb.group({
       name: ['',Validators.required],
@@ -26,7 +26,7 @@ export class CrearPeriodoComponent implements OnInit {
       finalDate:['',Validators.required],
     })
 
-    
+
   }
 
   ngOnInit(): void {
@@ -42,9 +42,10 @@ export class CrearPeriodoComponent implements OnInit {
 
     this.ServicesByStatusService.CrearNuevoPeriodos(name,startDate,finalDate).subscribe(
       resp=>{
+          console.log(resp);
 
         if(resp.status){
-          this.MensajeOk(resp.period.name)
+          this.MensajeOk(resp.periodoNuevo.name)
           this.Router.navigateByUrl("dashboard/periodos")
         }
         else{
@@ -54,14 +55,14 @@ export class CrearPeriodoComponent implements OnInit {
       }
     )
 
-    
+
   }
 
 
   MensajeOk(msg : string){
 
-    const mensaje = "Se creó correctamente el periodo"+ ` ${msg} ` + "  !!!"
-    
+    const mensaje = `Se creó correctamente el periodo ${msg} `
+
     this._snackBar.open(mensaje,'',{
 
       duration: 5000,
@@ -74,7 +75,7 @@ export class CrearPeriodoComponent implements OnInit {
   MensajeNo(msg : string){
 
     const mensaje = `${msg}`
-    
+
     this._snackBar.open(mensaje,'',{
 
       duration: 5000,

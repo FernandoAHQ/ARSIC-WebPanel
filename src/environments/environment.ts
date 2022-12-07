@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseURL: 'http://localhost:4000'
-//  baseURL: 'http://187.157.176.198'
+  //baseURL: 'http://localhost:4000'
+  baseURL: 'http://arsic.tectoucan.com'
  // baseURL: 'https://arsicserver.onrender.com'
 };
 
